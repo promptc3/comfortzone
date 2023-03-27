@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saumyajeet 🌕</title>
+  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,300&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;0,300;0,600;1,200;1,300&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --black: hsl(77, 12%, 11%);
+      --black-1: hsl(57, 12%, 9%);
+      --black-2: hsl(77, 12%, 5%);
+      --white: #f2f4ff;
+      --white-1: #dadce6;
+      --white-2: #d1dae8;
+      --white-3: #b6b7bf;
+      --white-4: #b7b7bc;
+      --sans-serif: "Work Sans", sans-serif;
+      --serif: "Newsreader", serif;
+      --mono: "Fira Mono", monospace;
+      --scroll-width: 1em;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans-serif);
+      position: relative;
+      display: grid;
+      gap: 0px 0px;
+      grid-template-areas:
+        "header-l header-c header-r"
+        "main-l main-c main-r"
+        "footer-l footer-c footer-r";
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      scrollbar-width: none;
+    }
+    body::-webkit-scrollbar {
+      width: 10px;
+      background-color: var(--black);
+    }
+    body::-webkit-scrollbar-thumb {
+      background-color: var(--black);
+      border-left: 1px solid var(--white-3);
+    }
+    body::-webkit-scrollbar-track {
+      background-color: var(--black);
+    }
+    p {
+        font-weight: 300;
+    }
+    /* 
+  Device = Desktops
+  Screen = 1281px to higher resolution desktops
+*/
+    @media (min-width: 1281px) {
+      body {
+        /* grid-template-columns: 0.6fr 1.4fr 0.8fr;  */
+        grid-template-columns: 0.6fr 70ch 1fr;
+        grid-template-rows: 0.6fr 2.4fr 0.2fr;
+      }
+    }
+
+    /* 
+  Device = Laptops, Desktops
+  Screen = B/w 1025px to 1280px
+*/
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      body {
+        /* grid-template-columns: 0.5fr 1.4fr 0.9fr;  */
+        grid-template-columns: 0.6fr 70ch 1fr;
+        grid-template-rows: 0.6fr 2.5fr 0.4fr;
+      }
+    }
+
+    /* 
+  Device = Tablets, Ipads (portrait)
+  Screen = B/w 768px to 1024px
+*/
+    @media (min-width: 768px) and (max-width: 1024px) {
+      body {
+        /* grid-template-columns: 0.5fr 1.5fr 1.0fr;  */
+        grid-template-columns: 0.6fr 70ch 1fr;
+        grid-template-rows: 0.6fr 2.5fr 0.5fr;
+      }
+    }
+
+    /* 
+  Device = Tablets, Ipads (landscape)
+  Screen = B/w 768px to 1024px
+*/
+
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+      body {
+        grid-template-columns: 0.3fr 50ch 0.3fr;
+        grid-template-rows: 0.6fr 2.5fr 0.2fr;
+      }
+    }
+
+    /* 
+  Device = Low Resolution Tablets, Mobiles (Landscape)
+  Screen = B/w 481px to 767px
+*/
+    @media (min-width: 481px) and (max-width: 767px) {
+      body {
+        grid-template-columns: 0.3fr 50ch 0.3fr;
+        grid-template-rows: 0.6fr 2.5fr 0.2fr;
+      }
+      p {
+        font-size: 0.6rem;
+      }
+      h2 {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* 
+  Device = Most of the Smartphones Mobiles (Portrait)
+  Screen = B/w 320px to 479px
+*/
+
+    @media (min-width: 320px) and (max-width: 480px) {
+      body {
+        grid-template-columns: 0.3fr 30ch 0.3fr;
+        grid-template-rows: 0.5fr 2.6fr 0.5fr;
+      }
+      p {
+        font-size: 0.6rem;
+      }
+      h2 {
+        font-size: 0.7rem;
+      }
+    }
+
+    section {
+      margin-block-end: 5%;
+      scroll-snap-align: start;
+    }
+    a {
+      text-decoration: none;
+      position: relative;
+    }
+    a:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      border-block-end: 1px solid var(--white-3);
+      transition: width 0.4s linear;
+    }
+    a:link {
+      color: var(--white-2);
+    }
+    a:visited {
+      color: var(--white-2);
+    }
+    a:hover {
+      color: var(--white-3);
+    }
+    a:hover:after {
+      width: 100%;
+    }
+    a:active {
+      color: var(--white-3);
+      border-block-end: 1px solid var(--white-3);
+    }
+    h2 {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--white-4);
+      align-self: start;
+    }
+    .name {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+    .quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    .buffer {
+      grid-area: buffer;
+    }
+    .header-l {
+      grid-area: header-l;
+      position: fixed;
+      position: fixed;
+      top: 0px;
+    }
+    .header-c {
+      grid-area: header-c;
+      background-color: transparent;
+      z-index: -1;
+    }
+    .header-r {
+      grid-area: header-r;
+      position: fixed;
+      top: 0px;
+    }
+    .main-c {
+      grid-area: main-c;
+      overflow-y: scroll;
+      position: sticky;
+      top: 0%;
+      padding-inline: 2%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scrollbar-color: none;
+      scrollbar-width: none;
+      z-index: 0;
+      scroll-snap-type: y mandatory;
+    }
+    /* webkit browsers */
+    .main-c::-webkit-scrollbar {
+      width: var(--scroll-width);
+      background-color: var(--black);
+    }
+    .main-c::-webkit-scrollbar-thumb {
+      background-color: var(--black);
+    }
+    .main-c::-webkit-scrollbar-track {
+      background-color: var(--black);
+    }
+    .menu-list {
+      list-style: none;
+      transition: filter 0.4s ease-in;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-item {
+      padding-inline: 5%;
+    }
+    .menu-item > a {
+      font-family: var(--sans-serif);
+      font-size: small;
+      color: var(--white-3);
+      transition: filter 0.4s ease-in;
+    }
+    .menu-item > a:hover {
+      filter: drop-shadow(1px 2px 5px white) brightness(1.5);
+    }
+    .footer-r {
+      grid-area: footer-r;
+    }
+    .footer-c {
+      grid-area: footer-c;
+      position: sticky;
+      top: 0;
+      font-family: var(--mono);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-c svg {
+      margin-top: -1px;
+    }
+    .footer-l {
+      grid-area: footer-l;
+    }
+    .main-l {
+      grid-area: main-l;
+    }
+    .main-r {
+      grid-area: main-r;
+    }
+    a.inline-anchor {
+      position: relative;
+      color: var(--white-3);
+      transition: filter 0.4s linear;
+    }
+    a.inline-anchor:hover {
+      filter: brightness(1.5);
+    }
+    a.inline-anchor:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      border-block-end: 1px solid var(--white-3);
+      transition: width 0.4s linear, filter 0.4s linear;
+    }
+    a.inline-anchor:hover:after {
+      width: 0%;
+      filter: brightness(1.5);
+    }
+  </style>
+  <body>
+    <div class="header-l"></div>
+    <div id="header" class="header-c"></div>
+    <div class="header-r"></div>
+    <div class="buffer"></div>
+    <div id="main-content" class="main-c">
+      <section id="summary">
+        <h2 class="name">Saumyajeet</h2>
+        <p>
+          <span class="quote"
+            >Thinking, building, stargazing and binging on my favorite anime, I
+            dream of owning a house with a flat roof and a pet dog, which
+            roughly translates to loyal companionship under trustworthy blanket
+            of a starry night.
+          </span>
+        </p>
+      </section>
+      <section id="Now">
+        <h2>Now</h2>
+        <p>
+          Professionaly I work as a software engineer at
+          <a
+            class="inline-anchor"
+            target="_blank"
+            href="https://intelizign.com/"
+            >Intelizign</a
+          >, India, developing web applications for enterprises using a low code
+          tool called
+          <a
+            class="inline-anchor"
+            target="_blank"
+            href="https://www.mendix.com/"
+            >Mendix</a
+          >. At home I build never ending side projects and ever growing
+          muscles.
+        </p>
+      </section>
+      <section id="Bio">
+        <h2>Bio</h2>
+        <p>
+          I was born in Patna, Bihar on 19 Dec 1996. I completed my schooling
+          from Army Public School, Jaipur and graduated in Electrical
+          Engineering from Indian Institute of Engineering Science & Technology,
+          Shibpur. My ever wavering interest oscillates between web applications
+          and game development. I have worked on tiny games, participated in
+          game jams and someday aspire to publish my own games and applications
+          on app store. I practice photography, poetry, music production and
+          occasionally cook thanks to my mom.
+        </p>
+      </section>
+      <section id="ADHD">
+        <h2>Living with ADHD</h2>
+        <p>
+          Neurodivergence in a developing nation with bare minimum awareness of
+          mental health issues has certainly taken a toll on me. My life upto
+          now has been extremely difficult. From family and friends to studies,
+          everything has been an uphill battle, but things have been a lot
+          better lately. I was finally able to get medication after switching
+          around multiple pschyiatrists. I have learned a lot about mental
+          health issues like depression, anxiety, ADHD, trauma and developed
+          multiple coping mechanisms in order to survive. Multiple comorbidities
+          and multiple interests, it is that kind of disorder. Although if you
+          live in India do reach out to me for any help related to ADHD.
+        </p>
+      </section>
+      <h2>Links</h2>
+      <section>
+        <ul class="menu-list">
+          <li class="menu-item">
+            <a target="_blank" href="https://github.com/promptc3">Projects</a>
+          </li>
+          <li class="menu-item">
+            <a
+              target="_blank"
+              href="https://instagram.com/saumya_jeet_?igshid=ZDdkNTZiNTM="
+              >Photography</a
+            >
+          </li>
+          <li class="menu-item">
+            <a target="_blank" href="https://itch.io/profile/datsleepyguy"
+              >Games</a
+            >
+          </li>
+          <li class="menu-item">
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/saumyajeet-22166b126/"
+              >Linkedin</a
+            >
+          </li>
+          <li class="menu-item">
+            <a target="_blank" href="mailto:promptc3.0@gmail.com">Mail</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <div class="main-r"></div>
+    <div class="footer-l"></div>
+    <div id="footer-c" class="footer-c">
+      <span>SCROLL</span>
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M17.25 13.75L12 19.25L6.75 13.75"
+        ></path>
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M12 18.25V4.75"
+        ></path>
+      </svg>
+    </div>
+    <div class="footer-r"></div>
+    <script>
+      const container = document.getElementById("main-content");
+      const totalHeight = container.scrollHeight - container.clientHeight;
+      const footer_c = document.getElementById("footer-c");
+      container.addEventListener("scroll", () => {
+        var scrollPercentage =
+          (totalHeight - container.scrollTop) / totalHeight;
+        footer_c.style.opacity = scrollPercentage;
+      });
+    </script>
+  </body>
+</html>

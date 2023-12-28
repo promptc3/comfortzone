@@ -1,443 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saumyajeet 🌕</title>
-  </head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,300&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;0,300;0,600;1,200;1,300&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    :root {
-      --black: hsl(77, 12%, 11%);
-      --black-1: hsl(57, 12%, 9%);
-      --black-2: hsl(77, 12%, 5%);
-      --white: #f2f4ff;
-      --white-1: #dadce6;
-      --white-2: #d1dae8;
-      --white-3: #b6b7bf;
-      --white-4: #b7b7bc;
-      --sans-serif: "Work Sans", sans-serif;
-      --serif: "Newsreader", serif;
-      --mono: "Fira Mono", monospace;
-      --scroll-width: 1em;
-      scroll-behavior: smooth;
-    }
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--sans-serif);
-      position: relative;
-      display: grid;
-      gap: 0px 0px;
-      grid-template-areas:
-        "header-l header-c header-r"
-        "main-l main-c main-r"
-        "footer-l footer-c footer-r";
-      padding: 0;
-      margin: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      scrollbar-width: none;
-    }
-    body::-webkit-scrollbar {
-      width: 10px;
-      background-color: var(--black);
-    }
-    body::-webkit-scrollbar-thumb {
-      background-color: var(--black);
-      border-left: 1px solid var(--white-3);
-    }
-    body::-webkit-scrollbar-track {
-      background-color: var(--black);
-    }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saumyajeet 🌕</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,300&display=swap"
+  rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: hsl(77, 12%, 15%);
+    --black-1: hsl(57, 12%, 11%);
+    --black-2: hsl(77, 12%, 7%);
+    --black-3: hsl(77, 12%, 5%);
+    --black-4: hsl(77, 12%, 2%);
+    --white: #f2f4ff;
+    --white-1: #dadce6;
+    --white-2: #d1dae8;
+    --white-3: #b6b7bf;
+    --white-4: #b7b7bc;
+    --bgc-0: var(--black);
+    --bgc-1: var(--black-1);
+    --bgc-2: var(--black-2);
+    --bgc-3: var(--black-3);
+    --bgc-4: var(--black-4);
+    --fgc-0: var(--white);
+    --fgc-1: var(--white-1);
+    --fgc-2: var(--white-2);
+    --fgc-3: var(--white-3);
+    --fgc-4: var(--white-4);
+    --sans-serif: "Work Sans", sans-serif;
+    --mono: "Space Mono", monospace;
+    --scroll-width: 1em;
+    --br-size: 12px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  @font-face {
+    font-family: 'Gridular';
+    src: url("fonts/Gridular-Regular.woff2");
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    background: var(--bgc-1);
+    color: var(--fgc-0);
+    font-family: var(--sans-serif);
+    padding: 1em;
+    margin: 0;
+  }
+
+  body::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--bgc-0);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--bgc-0);
+    border-left: 1px solid var(--fgc-3);
+  }
+
+  body::-webkit-scrollbar-track {
+    background-color: var(--bgc-0);
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    letter-spacing: 0.05em;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: var(--fgc-4);
+    align-self: start;
+  }
+
+
+  @media (min-width: 320px) and (max-width: 767px) {
     p {
-        font-weight: 300;
-    }
-    /* 
-  Device = Desktops
-  Screen = 1281px to higher resolution desktops
-*/
-    @media (min-width: 1281px) {
-      body {
-        /* grid-template-columns: 0.6fr 1.4fr 0.8fr;  */
-        grid-template-columns: 0.6fr 70ch 1fr;
-        grid-template-rows: 0.6fr 2.4fr 0.2fr;
-      }
+      font-size: 0.6rem;
     }
 
-    /* 
-  Device = Laptops, Desktops
-  Screen = B/w 1025px to 1280px
-*/
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      body {
-        /* grid-template-columns: 0.5fr 1.4fr 0.9fr;  */
-        grid-template-columns: 0.6fr 70ch 1fr;
-        grid-template-rows: 0.6fr 2.5fr 0.4fr;
-      }
-    }
-
-    /* 
-  Device = Tablets, Ipads (portrait)
-  Screen = B/w 768px to 1024px
-*/
-    @media (min-width: 768px) and (max-width: 1024px) {
-      body {
-        /* grid-template-columns: 0.5fr 1.5fr 1.0fr;  */
-        grid-template-columns: 0.6fr 70ch 1fr;
-        grid-template-rows: 0.6fr 2.5fr 0.5fr;
-      }
-    }
-
-    /* 
-  Device = Tablets, Ipads (landscape)
-  Screen = B/w 768px to 1024px
-*/
-
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-      body {
-        grid-template-columns: 0.3fr 50ch 0.3fr;
-        grid-template-rows: 0.6fr 2.5fr 0.2fr;
-      }
-    }
-
-    /* 
-  Device = Low Resolution Tablets, Mobiles (Landscape)
-  Screen = B/w 481px to 767px
-*/
-    @media (min-width: 481px) and (max-width: 767px) {
-      body {
-        grid-template-columns: 0.3fr 50ch 0.3fr;
-        grid-template-rows: 0.6fr 2.5fr 0.2fr;
-      }
-      p {
-        font-size: 0.6rem;
-      }
-      h2 {
-        font-size: 0.7rem;
-      }
-    }
-
-    /* 
-  Device = Most of the Smartphones Mobiles (Portrait)
-  Screen = B/w 320px to 479px
-*/
-
-    @media (min-width: 320px) and (max-width: 480px) {
-      body {
-        grid-template-columns: 0.3fr 30ch 0.3fr;
-        grid-template-rows: 0.5fr 2.6fr 0.5fr;
-      }
-      p {
-        font-size: 0.6rem;
-      }
-      h2 {
-        font-size: 0.7rem;
-      }
-    }
-
-    section {
-      margin-block-end: 5%;
-      scroll-snap-align: start;
-    }
-    a {
-      text-decoration: none;
-      position: relative;
-    }
-    a:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      border-block-end: 1px solid var(--white-3);
-      transition: width 0.4s linear;
-    }
-    a:link {
-      color: var(--white-2);
-    }
-    a:visited {
-      color: var(--white-2);
-    }
-    a:hover {
-      color: var(--white-3);
-    }
-    a:hover:after {
-      width: 100%;
-    }
-    a:active {
-      color: var(--white-3);
-      border-block-end: 1px solid var(--white-3);
-    }
     h2 {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--white-4);
-      align-self: start;
+      font-size: 0.7rem;
     }
-    .name {
-      font-size: 1.4rem;
-      font-weight: 400;
-      color: var(--white);
+  }
+
+  main {
+    background-color: var(--bgc-2);
+    width: min(70ch, 80%);
+    padding: 1rem;
+    border-radius: var(--br-size);
+    backdrop-filter: blur(4px);
+  }
+
+  section {
+    margin-block-end: 5%;
+  }
+
+  a {
+    text-decoration: none;
+    position: relative;
+    color: var(--fgc-2);
+  }
+
+  a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    border-block-end: 1px solid var(--fgc-3);
+    transition: width 0.4s linear;
+  }
+
+  a:link {
+    color: var(--fgc-2);
+  }
+
+  a:visited {
+    color: var(--fgc-2);
+  }
+
+  a:hover {
+    color: var(--fgc-3);
+  }
+
+  a:hover:after {
+    width: 100%;
+  }
+
+  a:active {
+    color: var(--fgc-3);
+    border-block-end: 1px solid var(--fgc-3);
+  }
+
+  .name {
+    font-size: 3.0rem;
+    font-family: 'Gridular';
+  }
+
+  .quote {
+    font-family: var(--mono);
+    letter-spacing: 1px;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-family: 'Gridular';
+    width: 100%;
+  }
+
+  footer>ul {
+    list-style: none;
+    transition: filter 0.3s ease-in;
+    display: flex;
+    flex-direction: row;
+    align-content: baseline;
+    justify-content: center;
+  }
+
+  footer>ul>li {
+    padding-inline-end: 5%;
+  }
+
+  footer>ul>li>a {
+    font-family: var(--mono);
+    font-size: small;
+    transition: filter 0.3s ease-in;
+  }
+
+  footer>ul>li>a:hover {
+    filter: drop-shadow(1px 2px 5px white) brightness(1.5);
+  }
+
+  a.inline-anchor {
+    position: relative;
+    transition: filter 0.4s linear;
+  }
+
+  a.inline-anchor:hover {
+    filter: brightness(1.5);
+  }
+
+  a.inline-anchor:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-block-end: 1px solid var(--fgc-3);
+    transition: width 0.4s linear, filter 0.4s linear;
+  }
+
+  a.inline-anchor:hover:after {
+    width: 0%;
+    filter: brightness(1.5);
+  }
+
+  [data-glow] {
+    --border-size: 2px;
+    --spotlight-size: 150px;
+    --base: 210;
+    --spread: 10;
+    --hue: calc(var(--base) + (var(--xp) * var(--spread)));
+    background-image: radial-gradient(var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+        hsl(var(--hue), 50%, 70% / 0.25), transparent);
+    background-attachment: fixed;
+  }
+
+  [data-glow]::before,
+  [data-glow]::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: calc(var(--border-size) * -1);
+    border: var(--border-size) solid transparent;
+    border-radius: var(--br-size);
+    background-attachment: fixed;
+    background-size: calc(100% + (2 * var(--border-size)));
+    background-position: 50% 50%;
+    mask:
+      linear-gradient(transparent, transparent),
+      linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+  }
+
+  [data-glow]::after {
+    background-image: radial-gradient(calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+        hsl(0 100% 100% / 1), transparent);
+  }
+
+  #colorSwitchButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <main data-glow>
+    <span id="colorSwitchButton">⦿</span>
+    <h1 class="name">Saumyajeet</h1>
+    <p>
+      <span class="quote">Thinking, building, stargazing, binging on my favorite anime and
+        dreaming under the trustworthy blanket of a starry night.
+      </span>
+    </p>
+    <section id="Now">
+      <h2>Now</h2>
+      <p>
+        Professionally, I am working as a software engineer at
+        <a class="inline-anchor" target="_blank" href="https://intelizign.com/">Intelizign</a> to develop applications
+        for
+        enterprises using a low code
+        tool called
+        <a class="inline-anchor" target="_blank" href="https://www.mendix.com/">Mendix</a>.
+      </p>
+      <p>
+        I was born in Patna, Bihar on 19 Dec 1996. I completed my schooling
+        from Army Public School, Jaipur and graduated in Electrical
+        Engineering from IIEST,
+        Shibpur. My ever wavering interest oscillates between web applications
+        and game development. I have worked on tiny games, participated in
+        game jams and have a huge folder of incomplete applications. I enjoy photography, poetry and gaming in my free
+        time.
+      </p>
+    </section>
+  </main>
+  <footer>
+    <ul>
+      <li> <a target="_blank" href="https://github.com/promptc3">Projects</a> </li>
+      <li> <a target="_blank" href="https://instagram.com/saumya_jeet_?igshid=ZDdkNTZiNTM=">Photography</a> </li>
+      <li> <a target="_blank" href="https://itch.io/profile/datsleepyguy">Games</a> </li>
+      <li> <a target="_blank" href="https://www.linkedin.com/in/saumyajeet-22166b126/">Linkedin</a> </li>
+      <li> <a target="_blank" href="mailto:promptc3.0@gmail.com">Mail</a> </li>
+    </ul>
+  </footer>
+</body>
+<script>
+  function switchColors() {
+    const computedStyles = getComputedStyle(document.documentElement);
+
+    // Loop through the numbers from 1 to 4 to switch the color variables
+    for (let i = 0; i <= 4; i++) {
+      const currentBgc = computedStyles.getPropertyValue(`--bgc-${i}`).trim();
+      const currentFgc = computedStyles.getPropertyValue(`--fgc-${i}`).trim();
+
+      document.documentElement.style.setProperty(`--bgc-${i}`, currentFgc);
+      document.documentElement.style.setProperty(`--fgc-${i}`, currentBgc);
     }
-    .quote {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 500;
-      letter-spacing: 1px;
+  }
+
+  const colorSwitchButton = document.getElementById('colorSwitchButton');
+  colorSwitchButton.addEventListener('click', switchColors);
+
+</script>
+<script>
+  (function () {
+    document.onmousemove = handleMouseMove;
+    function handleMouseMove(event) {
+      event = event || window.event; //IE-ism
+      let innerWidth = document.documentElement.clientWidth
+      let innerHeight = document.documentElement.clientHeight
+      document.documentElement.style.setProperty('--x', event.pageX)
+      document.documentElement.style.setProperty('--xp', event.pageX / innerWidth)
+      document.documentElement.style.setProperty('--y', event.pageY)
+      document.documentElement.style.setProperty('--yp', event.pageY / innerHeight)
     }
-    .buffer {
-      grid-area: buffer;
-    }
-    .header-l {
-      grid-area: header-l;
-      position: fixed;
-      position: fixed;
-      top: 0px;
-    }
-    .header-c {
-      grid-area: header-c;
-      background-color: transparent;
-      z-index: -1;
-    }
-    .header-r {
-      grid-area: header-r;
-      position: fixed;
-      top: 0px;
-    }
-    .main-c {
-      grid-area: main-c;
-      overflow-y: scroll;
-      position: sticky;
-      top: 0%;
-      padding-inline: 2%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      scrollbar-color: none;
-      scrollbar-width: none;
-      z-index: 0;
-      scroll-snap-type: y mandatory;
-    }
-    /* webkit browsers */
-    .main-c::-webkit-scrollbar {
-      width: var(--scroll-width);
-      background-color: var(--black);
-    }
-    .main-c::-webkit-scrollbar-thumb {
-      background-color: var(--black);
-    }
-    .main-c::-webkit-scrollbar-track {
-      background-color: var(--black);
-    }
-    .menu-list {
-      list-style: none;
-      transition: filter 0.4s ease-in;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    }
-    .menu-item {
-      padding-inline: 5%;
-    }
-    .menu-item > a {
-      font-family: var(--sans-serif);
-      font-size: small;
-      color: var(--white-3);
-      transition: filter 0.4s ease-in;
-    }
-    .menu-item > a:hover {
-      filter: drop-shadow(1px 2px 5px white) brightness(1.5);
-    }
-    .footer-r {
-      grid-area: footer-r;
-    }
-    .footer-c {
-      grid-area: footer-c;
-      position: sticky;
-      top: 0;
-      font-family: var(--mono);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .footer-c svg {
-      margin-top: -1px;
-    }
-    .footer-l {
-      grid-area: footer-l;
-    }
-    .main-l {
-      grid-area: main-l;
-    }
-    .main-r {
-      grid-area: main-r;
-    }
-    a.inline-anchor {
-      position: relative;
-      color: var(--white-3);
-      transition: filter 0.4s linear;
-    }
-    a.inline-anchor:hover {
-      filter: brightness(1.5);
-    }
-    a.inline-anchor:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      border-block-end: 1px solid var(--white-3);
-      transition: width 0.4s linear, filter 0.4s linear;
-    }
-    a.inline-anchor:hover:after {
-      width: 0%;
-      filter: brightness(1.5);
-    }
-  </style>
-  <body>
-    <div class="header-l"></div>
-    <div id="header" class="header-c"></div>
-    <div class="header-r"></div>
-    <div class="buffer"></div>
-    <div id="main-content" class="main-c">
-      <section id="summary">
-        <h2 class="name">Saumyajeet</h2>
-        <p>
-          <span class="quote"
-            >Thinking, building, stargazing and binging on my favorite anime, I
-            dream of owning a house with a flat roof and a pet dog, which
-            roughly translates to loyal companionship under trustworthy blanket
-            of a starry night.
-          </span>
-        </p>
-      </section>
-      <section id="Now">
-        <h2>Now</h2>
-        <p>
-          Professionaly I work as a software engineer at
-          <a
-            class="inline-anchor"
-            target="_blank"
-            href="https://intelizign.com/"
-            >Intelizign</a
-          >, India, developing web applications for enterprises using a low code
-          tool called
-          <a
-            class="inline-anchor"
-            target="_blank"
-            href="https://www.mendix.com/"
-            >Mendix</a
-          >. At home I build never ending side projects and ever growing
-          muscles.
-        </p>
-      </section>
-      <section id="Bio">
-        <h2>Bio</h2>
-        <p>
-          I was born in Patna, Bihar on 19 Dec 1996. I completed my schooling
-          from Army Public School, Jaipur and graduated in Electrical
-          Engineering from Indian Institute of Engineering Science & Technology,
-          Shibpur. My ever wavering interest oscillates between web applications
-          and game development. I have worked on tiny games, participated in
-          game jams and someday aspire to publish my own games and applications
-          on app store. I practice photography, poetry, music production and
-          occasionally cook thanks to my mom.
-        </p>
-      </section>
-      <section id="ADHD">
-        <h2>Living with ADHD</h2>
-        <p>
-          Neurodivergence in a developing nation with bare minimum awareness of
-          mental health issues has certainly taken a toll on me. My life upto
-          now has been extremely difficult. From family and friends to studies,
-          everything has been an uphill battle, but things have been a lot
-          better lately. I was finally able to get medication after switching
-          around multiple pschyiatrists. I have learned a lot about mental
-          health issues like depression, anxiety, ADHD, trauma and developed
-          multiple coping mechanisms in order to survive. Multiple comorbidities
-          and multiple interests, it is that kind of disorder. Although if you
-          live in India do reach out to me for any help related to ADHD.
-        </p>
-      </section>
-      <h2>Links</h2>
-      <section>
-        <ul class="menu-list">
-          <li class="menu-item">
-            <a target="_blank" href="https://github.com/promptc3">Projects</a>
-          </li>
-          <li class="menu-item">
-            <a
-              target="_blank"
-              href="https://instagram.com/saumya_jeet_?igshid=ZDdkNTZiNTM="
-              >Photography</a
-            >
-          </li>
-          <li class="menu-item">
-            <a target="_blank" href="https://itch.io/profile/datsleepyguy"
-              >Games</a
-            >
-          </li>
-          <li class="menu-item">
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/saumyajeet-22166b126/"
-              >Linkedin</a
-            >
-          </li>
-          <li class="menu-item">
-            <a target="_blank" href="mailto:promptc3.0@gmail.com">Mail</a>
-          </li>
-        </ul>
-      </section>
-    </div>
-    <div class="main-r"></div>
-    <div class="footer-l"></div>
-    <div id="footer-c" class="footer-c">
-      <span>SCROLL</span>
-      <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
-          d="M17.25 13.75L12 19.25L6.75 13.75"
-        ></path>
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
-          d="M12 18.25V4.75"
-        ></path>
-      </svg>
-    </div>
-    <div class="footer-r"></div>
-    <script>
-      const container = document.getElementById("main-content");
-      const totalHeight = container.scrollHeight - container.clientHeight;
-      const footer_c = document.getElementById("footer-c");
-      container.addEventListener("scroll", () => {
-        var scrollPercentage =
-          (totalHeight - container.scrollTop) / totalHeight;
-        footer_c.style.opacity = scrollPercentage;
-      });
-    </script>
-  </body>
+  })();
+</script>
+
 </html>

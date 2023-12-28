@@ -25,12 +25,12 @@
     --white-2: #d1dae8;
     --white-3: #b6b7bf;
     --white-4: #b7b7bc;
-    --bgc: var(--black);
+    --bgc-0: var(--black);
     --bgc-1: var(--black-1);
     --bgc-2: var(--black-2);
     --bgc-3: var(--black-3);
     --bgc-4: var(--black-4);
-    --fgc: var(--white);
+    --fgc-0: var(--white);
     --fgc-1: var(--white-1);
     --fgc-2: var(--white-2);
     --fgc-3: var(--white-3);
@@ -38,8 +38,14 @@
     --sans-serif: "Work Sans", sans-serif;
     --mono: "Space Mono", monospace;
     --scroll-width: 1em;
+    --br-size: 12px;
+    overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 
   @font-face {
@@ -48,32 +54,32 @@
   }
 
   body {
-    background: var(--bgc-1);
-    color: var(--fgc);
-    font-family: var(--sans-serif);
-    padding: 0;
-    margin: 0;
     display: grid;
     place-items: center;
+    background: var(--bgc-1);
+    color: var(--fgc-0);
+    font-family: var(--sans-serif);
+    padding: 1em;
+    margin: 0;
   }
 
   body::-webkit-scrollbar {
     width: 10px;
-    background-color: var(--bgc);
+    background-color: var(--bgc-0);
   }
 
   body::-webkit-scrollbar-thumb {
-    background-color: var(--bgc);
+    background-color: var(--bgc-0);
     border-left: 1px solid var(--fgc-3);
   }
 
   body::-webkit-scrollbar-track {
-    background-color: var(--bgc);
+    background-color: var(--bgc-0);
   }
 
   p {
-    font-weight: 300;
-    font-size: larger;
+    font-weight: 400;
+    font-size: 1.1em;
     line-height: 1.2em;
     letter-spacing: 0.05em;
   }
@@ -83,6 +89,7 @@
     color: var(--fgc-4);
     align-self: start;
   }
+
 
   @media (min-width: 320px) and (max-width: 767px) {
     p {
@@ -96,11 +103,10 @@
 
   main {
     background-color: var(--bgc-2);
-    margin-inline: 5%;
-    margin-top: 2%;
     width: min(70ch, 80%);
     padding: 1rem;
-    border-radius: 12px;
+    border-radius: var(--br-size);
+    backdrop-filter: blur(4px);
   }
 
   section {
@@ -157,12 +163,12 @@
   footer {
     position: fixed;
     bottom: 0;
-    left: 0; 
+    left: 0;
     font-family: 'Gridular';
     width: 100%;
   }
 
-  footer > ul {
+  footer>ul {
     list-style: none;
     transition: filter 0.3s ease-in;
     display: flex;
@@ -171,17 +177,17 @@
     justify-content: center;
   }
 
-  footer > ul > li {
-    padding-inline: 5%;
+  footer>ul>li {
+    padding-inline-end: 5%;
   }
 
-  footer > ul > li > a {
+  footer>ul>li>a {
     font-family: var(--mono);
     font-size: small;
     transition: filter 0.3s ease-in;
   }
 
-  footer > ul > li > a:hover {
+  footer>ul>li>a:hover {
     filter: drop-shadow(1px 2px 5px white) brightness(1.5);
   }
 
@@ -208,10 +214,52 @@
     width: 0%;
     filter: brightness(1.5);
   }
+
+  [data-glow] {
+    --border-size: 2px;
+    --spotlight-size: 150px;
+    --base: 210;
+    --spread: 10;
+    --hue: calc(var(--base) + (var(--xp) * var(--spread)));
+    background-image: radial-gradient(var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+        hsl(var(--hue), 50%, 70% / 0.25), transparent);
+    background-attachment: fixed;
+  }
+
+  [data-glow]::before,
+  [data-glow]::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: calc(var(--border-size) * -1);
+    border: var(--border-size) solid transparent;
+    border-radius: var(--br-size);
+    background-attachment: fixed;
+    background-size: calc(100% + (2 * var(--border-size)));
+    background-position: 50% 50%;
+    mask:
+      linear-gradient(transparent, transparent),
+      linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+  }
+
+  [data-glow]::after {
+    background-image: radial-gradient(calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+        hsl(0 100% 100% / 1), transparent);
+  }
+
+  #colorSwitchButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
 </style>
 
 <body>
-  <main>
+  <main data-glow>
+    <span id="colorSwitchButton">⦿</span>
     <h1 class="name">Saumyajeet</h1>
     <p>
       <span class="quote">Thinking, building, stargazing, binging on my favorite anime and
@@ -222,7 +270,8 @@
       <h2>Now</h2>
       <p>
         Professionally, I am working as a software engineer at
-        <a class="inline-anchor" target="_blank" href="https://intelizign.com/">Intelizign</a> to develop applications for
+        <a class="inline-anchor" target="_blank" href="https://intelizign.com/">Intelizign</a> to develop applications
+        for
         enterprises using a low code
         tool called
         <a class="inline-anchor" target="_blank" href="https://www.mendix.com/">Mendix</a>.
@@ -248,5 +297,37 @@
     </ul>
   </footer>
 </body>
+<script>
+  function switchColors() {
+    const computedStyles = getComputedStyle(document.documentElement);
+
+    // Loop through the numbers from 1 to 4 to switch the color variables
+    for (let i = 0; i <= 4; i++) {
+      const currentBgc = computedStyles.getPropertyValue(`--bgc-${i}`).trim();
+      const currentFgc = computedStyles.getPropertyValue(`--fgc-${i}`).trim();
+
+      document.documentElement.style.setProperty(`--bgc-${i}`, currentFgc);
+      document.documentElement.style.setProperty(`--fgc-${i}`, currentBgc);
+    }
+  }
+
+  const colorSwitchButton = document.getElementById('colorSwitchButton');
+  colorSwitchButton.addEventListener('click', switchColors);
+
+</script>
+<script>
+  (function () {
+    document.onmousemove = handleMouseMove;
+    function handleMouseMove(event) {
+      event = event || window.event; //IE-ism
+      let innerWidth = document.documentElement.clientWidth
+      let innerHeight = document.documentElement.clientHeight
+      document.documentElement.style.setProperty('--x', event.pageX)
+      document.documentElement.style.setProperty('--xp', event.pageX / innerWidth)
+      document.documentElement.style.setProperty('--y', event.pageY)
+      document.documentElement.style.setProperty('--yp', event.pageY / innerHeight)
+    }
+  })();
+</script>
 
 </html>
